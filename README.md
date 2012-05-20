@@ -1,4 +1,4 @@
-#<center>Rethinking the Hybrid App Paradyne</center><br>
+#<center>Rethinking the Hybrid App Paradigm</center><br>
 
 
 
@@ -19,7 +19,7 @@ Reference:
 ](https://github.com/RandyMcMillan/Cleaver-RSSReader
 )
 
-<br>
+<br>U
 
 ![image](https://github.com/RandyMcMillan/ModalCleaverView2/raw/master/form.png)
 ![image](https://github.com/RandyMcMillan/ModalCleaverView2/raw/master/page.png)
