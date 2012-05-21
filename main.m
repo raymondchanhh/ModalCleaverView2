@@ -125,13 +125,35 @@
         [button addTarget:self 
                    action:@selector(closeCleaverView:)
          forControlEvents:UIControlEventTouchUpInside];
-        [button setTitle:@"Close Cleaver View" forState:UIControlStateNormal];
+        [button setTitle:@"Close" forState:UIControlStateNormal];
         button.frame = CGRectMake(x, y, 160.0, 40.0);
-        button.center = cleaverViewController.view.center ;
-        [cleaverViewController.view addSubview:button];
-        [navController.view addSubview:cleaverViewController.view];
-        [navController.view bringSubviewToFront:cleaverViewController.view];
-       // [self.navigationController presentModalViewController:navController animated:YES];
+    button.autoresizingMask = ( UIViewAutoresizingFlexibleWidth |
+                               UIViewAutoresizingFlexibleLeftMargin |
+                               UIViewAutoresizingFlexibleRightMargin |
+                               UIViewAutoresizingFlexibleBottomMargin );
+    
+    
+    if (IS_IPAD)
+    {
+        int x = [UIScreen mainScreen].bounds.size.width * 0.885;
+        int y = [UIScreen mainScreen].bounds.size.height * 0.004;
+        button.frame = CGRectMake(x, y, 85.0, 35.0);
+    }
+    
+    else 
+    {
+        
+        int x = [UIScreen mainScreen].bounds.size.width * 0.775;
+        int y = [UIScreen mainScreen].bounds.size.height * 0.010;
+        button.frame = CGRectMake(x, y, 70.0, 35.0);
+    }
+    
+    
+    [cleaverViewController.view addSubview:button];
+    [navController.view addSubview:cleaverViewController.view];
+    navController.view.autoresizesSubviews = YES;
+    
+    [navController.view bringSubviewToFront:cleaverViewController.view];
 
         
     //}
@@ -201,6 +223,7 @@
 		NSArray *presentationChoices = [NSArray arrayWithObjects:@"Full Screen", @"Page Sheet", @"Form Sheet", nil];
 		UISegmentedControl *iPadStyleControl = [[UISegmentedControl alloc] initWithItems:presentationChoices];
 		iPadStyleControl.segmentedControlStyle = UISegmentedControlStyleBar;
+        [iPadStyleControl setSelectedSegmentIndex:1];
 		iPadStyleControl.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         iPadStyleControl.center = CGPointMake(CGRectGetMidX(self.view.bounds), 22.0f);
         [iPadStyleControl setSelectedSegmentIndex:2];
